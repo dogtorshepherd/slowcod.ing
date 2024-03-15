@@ -1,0 +1,23 @@
+CLSX => A library that allows conditional styling of a component based on its state
+
+Font optimization in NEXT => download all fonts in build time and use them as static assets to reduce network requests
+
+Image optimization in NEXT => lazy loading by default, modern image format (such as webp), resizing based on viewport, etc.
+
+Layout rendering in NEXT => only the page component rerenders, the layout doesnt (similar to how Outlet works in React)
+
+Page optimization in NEXT => split app by route segments, whenever a Link component is found, the code containing the page is preloaded
+
+Data Fetching in NEXT => use React Server Components that supports promises and allows writing server logic in NEXT
+    - Static Rendering => data fetched on build time or revalidation time, good for non-realtime data, cannot use things like cookies (data available on request time)
+    - Dynamic Rendering => data fetched on component render/request, good for real time data / personalized content, used to access information that requires cookies/parameters    
+    - Streaming => a data fetching technique that allows breaking down a route into smaller chunks and stream the data one at a time as they become ready
+        - Use loading.tsx => setup a default loading page when not all data in a route has finished fetching
+        - use React Suspense => putting the data fetching function inside the component and returning a fallback component when the data is still being fetched. Supports separation of concerns.
+
+Search and Pagination in NEXT => use hooks (usePathName to get current path, useRouter to update route, and useSearchParams to manage parameters)
+
+Debouncing => limit frequency of function calls, powerful in search functions, can use 'use-debounce' package
+
+Error Handling => use try-catch on server actions, use error.tsx to store a catch-all error. For 404 Error, we can add another page using notFound() and not-found.txt
+
